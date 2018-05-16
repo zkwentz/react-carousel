@@ -266,10 +266,9 @@ export default class Carousel extends Component {
     return this.getTargetMod();
   };
 
-
   /* event handlers */
   /**
-   * Handler setting the carouselWidth value in state (used to set proper width of track and slides)
+   * qHandler setting the carouselWidth value in state (used to set proper width of track and slides)
    * throttled to improve performance
    * @type {Function}
    */
@@ -346,8 +345,8 @@ export default class Carousel extends Component {
    */
   onMouseUpTouchEnd = e => {
     if (this.state.dragStart !== null) {
-      e.preventDefault();
       if (this.getProp('draggable')) {
+        e.preventDefault();
         if (Math.abs(this.state.dragOffset) > config.clickDragThreshold) {
           this.changeSlide(this.getNearestSlideIndex());
         } else if (this.getProp('clickToChange')) {
@@ -390,12 +389,23 @@ export default class Carousel extends Component {
     return value;
   };
 
+  infin = value => {
+    const maxValue = this.getChildren().length - 1;
+    if (value > maxValue) {
+      return 0;
+    }
+    if (value < 0) {
+      return maxValue;
+    }
+    return value;
+  };
+
   /**
    * Clamps a provided value and triggers onChange
    * @param {number} value desired index to change current value to
    * @return {undefined}
    */
-  changeSlide = value => this.props.onChange(this.getProp('infinite') ? value : this.clamp(value));
+  changeSlide = value => this.props.onChange(this.getProp('infinite') ? this.infin(value) : this.clamp(value));
 
   nextSlide = () => this.changeSlide(this.getCurrentValue() + this.getProp('slidesPerScroll'));
 
