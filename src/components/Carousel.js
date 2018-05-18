@@ -405,8 +405,11 @@ export default class Carousel extends Component {
    * @param {number} value desired index to change current value to
    * @return {undefined}
    */
-  changeSlide = value => this.props.onChange(this.getProp('infinite') ? this.infin(value) : this.clamp(value));
-
+  changeSlide = value => {
+    console.log(value);
+    return this.props.onChange(this.getProp('infinite') ? this.infin(value) : this.clamp(value));
+  }
+  
   nextSlide = () => this.changeSlide(this.getCurrentValue() + this.getProp('slidesPerScroll'));
 
   prevSlide = () => this.changeSlide(this.getCurrentValue() - this.getProp('slidesPerScroll'));
