@@ -155,10 +155,12 @@ export default class Carousel extends Component {
 
   getAdditionalClonesLeft = () => {
     const additionalClones = this.getNeededAdditionalClones();
+    console.log('getAdditionalClonesLeft: ', additionalClones);
     return additionalClones < 0 ? -additionalClones : 0;
   };
   getAdditionalClonesRight = () => {
     const additionalClones = this.getNeededAdditionalClones();
+    console.log('getAdditionalClonesRight: ', additionalClones);
     return additionalClones > 0 ? additionalClones : 0;
   };
   getClonesLeft = () => config.numberOfInfiniteClones + this.getAdditionalClonesLeft();

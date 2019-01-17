@@ -21,12 +21,14 @@
     "test-regression-update": "gemini update ./test/regression/*js",
     "test:coverage": "NODE_PATH=example babel-node ./node_modules/.bin/isparta cover _mocha -- --require ./tools/testSetup.js \"./test/unit/*.js\" && open coverage/lcov-report/index.html",
     "test:coverage:ci": "NODE_PATH=example babel-node ./node_modules/.bin/isparta cover _mocha --report lcovonly -- --require ./tools/testSetup.js \"./test/unit/*.js\"",
-    "precommit": "npm run lint"
+    "precommit": "npm run lint",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "author": "Brainhub",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@storybook/react": "^4.1.6",
     "autoprefixer": "^7.1.1",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
@@ -87,7 +89,7 @@
     "sinon-chai": "^2.11.0",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.0.0"
+    "webpack": "^4.3.0"
   },
   "peerDependencies": {
     "react": ">0.14.0 || >15.0.0",
@@ -105,7 +107,7 @@
     "responsive",
     "gallery",
     "rwd"
-   ],
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/brainhubeu/react-carousel"
