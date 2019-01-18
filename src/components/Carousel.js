@@ -152,15 +152,12 @@ export default class Carousel extends Component {
 
   getNeededAdditionalClones = () =>
     Math.ceil((this.getCurrentValue() - this.state.infiniteTransitionFrom) / this.getChildren().length);
-
   getAdditionalClonesLeft = () => {
     const additionalClones = this.getNeededAdditionalClones();
-    console.log('getAdditionalClonesLeft: ', additionalClones);
     return additionalClones < 0 ? -additionalClones : 0;
   };
   getAdditionalClonesRight = () => {
     const additionalClones = this.getNeededAdditionalClones();
-    console.log('getAdditionalClonesRight: ', additionalClones);
     return additionalClones > 0 ? additionalClones : 0;
   };
   getClonesLeft = () => config.numberOfInfiniteClones + this.getAdditionalClonesLeft();
@@ -379,7 +376,7 @@ export default class Carousel extends Component {
   onTransitionEnd = () => {
     this.setState({
       transitionEnabled: false,
-      infiniteTransitionFrom: null,
+      infiniteTransitionFrom: this.getProp('infinite') ? this.getCurrentValue() : null,
     });
   };
 

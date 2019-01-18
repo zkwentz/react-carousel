@@ -28,6 +28,7 @@
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
+    "@storybook/addon-options": "^4.1.6",
     "@storybook/react": "^4.1.6",
     "autoprefixer": "^7.1.1",
     "babel-cli": "^6.24.1",

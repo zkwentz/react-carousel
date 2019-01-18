@@ -1,33 +1,27 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Carousel from '../src/index';
+import Carousel, { Dots } from '../src/index';
+import { childrenDiv } from './mockup.jsx';
+import App from '../src/App';
 
 storiesOf('React-carousel', module)
-  .add('simple example', () => (
+  .add('Default usage', () =>
+    <Carousel>
+      {childrenDiv.map(element => element)}
+    </Carousel>)
+  .add('Default arrows', () => (
+    <Carousel
+      arrows
+    >
+      {childrenDiv.map(element => element)}
+    </Carousel>
+  ))
+  .add('Infinite', () => (
     <Carousel
       arrows
       infinite
+      slidesPerPage={2}
     >
-      <div
-        style={{
-          background: 'red',
-        }}
-      >
-        test
-      </div>
-      <div
-        style={{
-          background: 'blue',
-        }}
-      >
-        test
-      </div>
-      <div
-        style={{
-          background: 'green',
-        }}
-      >
-        test
-      </div>
+      {childrenDiv.map(element => element)}
     </Carousel>
   ));
