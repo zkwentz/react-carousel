@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Carousel, { Dots } from '../src/index';
 import { childrenDiv } from './mockup.jsx';
-import App from '../src/App';
 
 storiesOf('React-carousel', module)
   .add('Default usage', () =>
@@ -20,7 +19,8 @@ storiesOf('React-carousel', module)
     <Carousel
       arrows
       infinite
-      slidesPerPage={2}
+      animationSpeed={500}
+      slidesPerPage={3}
     >
       {childrenDiv.map(element => element)}
     </Carousel>

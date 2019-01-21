@@ -152,6 +152,7 @@ export default class Carousel extends Component {
 
   getNeededAdditionalClones = () =>
     Math.ceil((this.getCurrentValue() - this.state.infiniteTransitionFrom) / this.getChildren().length);
+
   getAdditionalClonesLeft = () => {
     const additionalClones = this.getNeededAdditionalClones();
     return additionalClones < 0 ? -additionalClones : 0;
@@ -376,7 +377,7 @@ export default class Carousel extends Component {
   onTransitionEnd = () => {
     this.setState({
       transitionEnabled: false,
-      infiniteTransitionFrom: this.getProp('infinite') ? this.getCurrentValue() : null,
+      infiniteTransitionFrom: this.getCurrentValue(),
     });
   };
 
