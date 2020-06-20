@@ -324,7 +324,6 @@ class Carousel extends Component {
    */
   onMouseUpTouchEnd = e => {
     if (this.state.dragStart !== null) {
-      e.preventDefault();
       if (this.getProp('draggable') && Math.abs(this.state.dragOffset) > config.clickDragThreshold) {
         this.changeSlide(this.getNearestSlideIndex());
       } else if (this.getProp('clickToChange')) {
