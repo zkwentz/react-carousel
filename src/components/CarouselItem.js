@@ -13,6 +13,7 @@ class CarouselItem extends PureComponent {
     width: PropTypes.number,
     offset: PropTypes.number,
     index: PropTypes.number,
+    id: PropTypes.number,
     currentSlideIndex: PropTypes.number,
     isDragging: PropTypes.bool,
     isDraggingEnabled: PropTypes.bool,
